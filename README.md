@@ -11,9 +11,13 @@ A CLI application that extracts text from contact card images using OCR (Optical
 
 ## Installation
 
-1. Install Python dependencies:
+### From Source
+
+1. Clone the repository and install the package:
 ```bash
-pip install -r requirements.txt
+git clone <repository-url>
+cd contact_card_reader
+pip install -e .
 ```
 
 2. Install Tesseract OCR:
@@ -21,35 +25,44 @@ pip install -r requirements.txt
    - **macOS**: `brew install tesseract`
    - **Linux**: `sudo apt-get install tesseract-ocr`
 
+### Development Installation
+
+For development, install in editable mode:
+```bash
+pip install -e .
+```
+
+See [INSTALL.md](INSTALL.md) for detailed installation instructions.
+
 ## Usage
 
 ### Basic Usage
 
 Process a single image:
 ```bash
-python contact_card_reader.py image.jpg
+contact-card-reader image.jpg
 ```
 
 Process all images in a directory:
 ```bash
-python contact_card_reader.py /path/to/images/
+contact-card-reader /path/to/images/
 ```
 
 ### Output Options
 
 Print results to terminal (default):
 ```bash
-python contact_card_reader.py image.jpg --print
+contact-card-reader image.jpg --print
 ```
 
 Save to text file:
 ```bash
-python contact_card_reader.py image.jpg --output results.txt
+contact-card-reader image.jpg --output results.txt
 ```
 
 Save to CSV file:
 ```bash
-python contact_card_reader.py /path/to/images/ --format csv --output results.csv
+contact-card-reader /path/to/images/ --format csv --output results.csv
 ```
 
 ### Command Line Arguments
@@ -63,20 +76,24 @@ python contact_card_reader.py /path/to/images/ --format csv --output results.csv
 
 ```bash
 # Process single image and display results
-python contact_card_reader.py tests/images/IMG_3780.jpg
+contact-card-reader tests/images/generated_card.png
 
 # Process directory and save to CSV
-python contact_card_reader.py tests/images/ --format csv --output contact_cards.csv
+contact-card-reader tests/images/ --format csv --output contact_cards.csv
 
 # Process directory and save to text file
-python contact_card_reader.py tests/images/ --output extracted_text.txt
+contact-card-reader tests/images/ --output extracted_text.txt
 ```
 
 ## Testing
 
 Run the test suite:
 ```bash
-python test_image_loader.py
+# Run unit tests
+python tests/test_image_loader.py
+
+# Run application tests
+python tests/test_application.py
 ```
 
 ## Dependencies
