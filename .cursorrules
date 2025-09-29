@@ -1,0 +1,10 @@
+# Project Rules
+
+1. Do not write mock interfaces
+2. Write a simple test for every function
+3. Prefer shorter solutions over longer ones
+4. Use as little dependencies as possible
+5. Always activate .venv before running commands
+6. use unittest for all tests
+7. all test data should be in the tests folder
+8. temporary test data should be compared against expected test data and then discarded
